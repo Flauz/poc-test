@@ -1,6 +1,7 @@
 import React from 'react';
 import Widget_text from "./components/Widget-text/Widget_text"
 import axios from "axios"
+import {getData} from "./Store/Action/index"
 import { connect } from "react-redux"
 import './App.css';
 
@@ -12,24 +13,25 @@ class App extends React.Component {
   }
 
 
-  getData = () => {
-    axios.get("http://localhost:3030/data")
-      .then(result => { this.setState({ data: result.data, isLoaded: true }) })
-  }
+  // getData = () => {
+  //   axios.get("http://localhost:3030/data")
+  //     .then(result => { this.setState({ data: result.data, isLoaded: true }) })
+  // }
 
-  dataToStore = () => {
-    const action = { type: 'DATA_LOADED', value: this.state }
-    this.props.dispatch(action)
-  }
+  // dataToStore = () => {
+  //   const action = { type: 'DATA_LOADED', value: this.state }
+  //   this.props.dispatch(action)
+  // }
 
-  componentDidMount() {
-    this.getData()
-  }
+  // componentDidMount() {
+  //   this.getData()
+  // }
 
 
   render() {
 
-    this.dataToStore()
+    // this.dataToStore()
+    
 
     if (typeof this.state.data[0] != 'undefined') { console.log('STATE yolo', this.state.data[1].widgets[0]) }
 

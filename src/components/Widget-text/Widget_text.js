@@ -5,11 +5,16 @@ import ReactHtmlParser from 'react-html-parser';
 
 const Widget_text = (data) => {
 
-    console.log('WIDGET FRERO: ', data.data.data[1].widgets[0])
 
     const dataWidgetText = data.data.data[1].widgets[0]
 
+    console.log('WIDGET TEXT :', dataWidgetText)
+
     const dataWidget = dataWidgetText.text
+
+    const dataWidgetStyle = dataWidgetText.widget_style
+
+    console.log('WIDGET STYLE :', dataWidgetStyle)
 
     return (
         <div className='container'>
@@ -18,7 +23,7 @@ const Widget_text = (data) => {
                 {/* {console.log('WIDGET', this.props.state.data)} */}
                 <>
                 <div>{dataWidgetText.text}</div>
-                <div>{ReactHtmlParser(dataWidget)}</div>
+                <div className={dataWidgetStyle}>{ReactHtmlParser(dataWidget)}</div>
                 </>
             </div>
         </div>
