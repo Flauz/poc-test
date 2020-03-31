@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import ReactHtmlParser from 'react-html-parser';
 
 
 const Widget_text = (data) => {
@@ -8,6 +9,8 @@ const Widget_text = (data) => {
 
     const dataWidgetText = data.data.data[1].widgets[0]
 
+    const dataWidget = dataWidgetText.text
+
     return (
         <div className='container'>
             <div className="container clearfix">
@@ -15,8 +18,7 @@ const Widget_text = (data) => {
                 {/* {console.log('WIDGET', this.props.state.data)} */}
                 <>
                 <div>{dataWidgetText.text}</div>
-                {dataWidgetText.text}
-                yeye
+                <div>{ReactHtmlParser(dataWidget)}</div>
                 </>
             </div>
         </div>
